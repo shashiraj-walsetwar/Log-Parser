@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\shashiraj.walsetwar\\Desktop\\Everything SPU\\Log Decrypter\\Log Decrypter\\Log Decrypter.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\shashiraj.walsetwar\\Desktop\\Everything SPU\\Log Decrypter\\Log Decrypter\\Log Decrypter.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\shashiraj.walsetwar\\Desktop\\Everything SPU\\Log Decrypter\\Log Decrypter\\Log Decrypter.csproj",
+        "projectName": "Log Decrypter",
+        "projectPath": "C:\\Users\\shashiraj.walsetwar\\Desktop\\Everything SPU\\Log Decrypter\\Log Decrypter\\Log Decrypter.csproj",
+        "packagesPath": "C:\\Users\\shashiraj.walsetwar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\shashiraj.walsetwar\\Desktop\\Everything SPU\\Log Decrypter\\Log Decrypter\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\shashiraj.walsetwar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net20"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nugetserver.sikkasoft.com:443/nuget": {}
+        },
+        "frameworks": {
+          "net20": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net20": {
+          "dependencies": {
+            "DataGridViewAutoFilter": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

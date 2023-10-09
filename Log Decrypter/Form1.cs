@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using Newtonsoft.Json;
+using DataGridViewAutoFilter;
 
 namespace Log_Decrypter
 {
@@ -19,7 +21,29 @@ namespace Log_Decrypter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            // Specify the path to your log file
+            string logFilePath = "C:\\Users\\shashiraj.walsetwar\\Documents\\Access_Test.log";
+            comboBox1.SelectedText = "--select--";
+            filePath_textbox.Text = "Select Log File";
+
+            try
+            {
+                // Read the contents of the log file
+                string logData = File.ReadAllText(logFilePath);
+
+                // Deserialize the JSON data into a DataTable
+                DataTable dataTable = JsonConvert.DeserializeObject<DataTable>(logData);
+
+                // Bind the DataTable to the DataGridView control
+                dataGridView1.DataSource = dataTable;
+
+                // Enable auto-filtering for columns
+                //dataGridView1.AutoFilter();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error Reading Log File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,7 +72,7 @@ namespace Log_Decrypter
                         {
                             //Console.WriteLine(line);
                             string decrypted_line = encryptor.DecryptString(line);
-                            logDisplay.AppendText(decrypted_line+ "\n");
+                            //logDisplay.AppendText(decrypted_line+ "\n");
                         }
                     }
                     
@@ -62,8 +86,15 @@ namespace Log_Decrypter
             string location = System.AppDomain.CurrentDomain.BaseDirectory;
             //System.IO.StreamWriter file = new System.IO.StreamWriter($"{location}\\decryptedLogs.txt");
 
-            System.IO.File.WriteAllText($"{location}\\decryptedLog.txt", logDisplay.Text.Replace("\n", Environment.NewLine));
+            //System.IO.File.WriteAllText($"{location}\\decryptedLog.txt", logDisplay.Text.Replace("\n", Environment.NewLine));
             MessageBox.Show($"Decrypted Logs stored at: {location}");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string selectedValue = comboBox1.SelectedItem as string;
+
+
         }
     }
 

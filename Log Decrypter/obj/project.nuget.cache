@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "FDmsFudo2/K7LstYkit1BOBBhDhPHAf/ON9uTKqyLPBxySi/bvHKoavnMxkDgg61kyc/OES8TLWtvJ86EQOKLg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\shashiraj.walsetwar\\Desktop\\Everything SPU\\Log Decrypter\\Log Decrypter\\Log Decrypter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shashiraj.walsetwar\\.nuget\\packages\\datagridviewautofilter\\1.0.0\\datagridviewautofilter.1.0.0.nupkg.sha512",
+    "C:\\Users\\shashiraj.walsetwar\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
