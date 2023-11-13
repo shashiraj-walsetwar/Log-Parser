@@ -7,3 +7,4 @@ C:\Users\shashiraj.walsetwar\Desktop\Everything SPU\Log Decrypter\Log Decrypter\
 C:\Users\shashiraj.walsetwar\Desktop\Everything SPU\Log Decrypter\Log Decrypter\obj\Debug\Log Decrypter.csproj.CoreCompileInputs.cache
 C:\Users\shashiraj.walsetwar\Desktop\Everything SPU\Log Decrypter\Log Decrypter\obj\Debug\Log Decrypter.exe
 C:\Users\shashiraj.walsetwar\Desktop\Everything SPU\Log Decrypter\Log Decrypter\obj\Debug\Log Decrypter.pdb
+C:\Users\shashiraj.walsetwar\Desktop\Everything SPU\Log Decrypter\Log Decrypter\bin\Debug\Log Decrypter.exe.config

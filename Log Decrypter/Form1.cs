@@ -26,8 +26,8 @@ namespace Log_Decrypter
         {
             var fileContent = string.Empty;
             var filePath = string.Empty;
-            
-            AesEncryptor encryptor = new AesEncryptor();
+
+            logEncryptor encryptor = new logEncryptor();
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
@@ -67,7 +67,8 @@ namespace Log_Decrypter
         }
     }
 
-    public class AesEncryptor : IDisposable
+    // Rijndael's Encryption for .net target framework 2.0
+    /*public class AesEncryptor : IDisposable
     {
         private RijndaelManaged _rijndael;
         private byte[] _key;
@@ -124,6 +125,68 @@ namespace Log_Decrypter
             {
                 _rijndael.Clear();
                 _rijndael = null;
+            }
+        }
+    }*/
+
+    public class logEncryptor : IDisposable
+    {
+
+        private Aes _aes;
+        private byte[] _key;
+
+        public logEncryptor()
+        {
+            string encryptionKey = "?;kx7$^Pb;g2ftuIj,4]o8;~S>[G(}/|";
+            _aes = Aes.Create();
+            _key = Encoding.UTF8.GetBytes(encryptionKey);
+            _aes.Key = _key;
+        }
+
+        public string EncryptString(string plainText)
+        {
+            _aes.GenerateIV();
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                ms.Write(_aes.IV, 0, _aes.IV.Length);
+
+                using (CryptoStream cs = new CryptoStream(ms, _aes.CreateEncryptor(), CryptoStreamMode.Write))
+                {
+                    byte[] plainBytes = Encoding.UTF8.GetBytes(plainText);
+                    cs.Write(plainBytes, 0, plainBytes.Length);
+                }
+
+                return Convert.ToBase64String(ms.ToArray());
+            }
+        }
+
+        public string DecryptString(string encryptedText)
+        {
+            byte[] encryptedBytes = Convert.FromBase64String(encryptedText);
+
+            using (MemoryStream ms = new MemoryStream(encryptedBytes))
+            {
+                byte[] iv = new byte[16];
+                ms.Read(iv, 0, iv.Length);
+                _aes.IV = iv;
+
+                using (CryptoStream cs = new CryptoStream(ms, _aes.CreateDecryptor(), CryptoStreamMode.Read))
+                {
+                    using (StreamReader reader = new StreamReader(cs))
+                    {
+                        return reader.ReadToEnd();
+                    }
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            if (_aes != null)
+            {
+                _aes.Clear();
+                _aes = null;
             }
         }
     }
